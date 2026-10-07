@@ -1,4 +1,4 @@
-"""Pydantic configuration models for Sigmwah."""
+"""Pydantic configuration models for MilitiaCelestial."""
 
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ class ConvertSettings(BaseModel):
     target: Literal["wazuh4", "wazuh5"] = "wazuh4"
     id_start: int = 100100
     id_max: int = 119999
-    id_file: Path = Field(default_factory=lambda: Path(".sigmwah_ids.json"))
+    id_file: Path = Field(default_factory=lambda: Path(".militiacelestial_ids.json"))
     select: str | None = None
     tags: list[str] = Field(default_factory=list)
     level: str | None = None

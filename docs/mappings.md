@@ -13,7 +13,7 @@ Verified against Wazuh **4.14.7** ruleset files from
 Live EventChannel events are decoded as `windows_eventchannel`. Rule **60000** is
 the tree root (`0575-win-base_rules.xml`). Custom rules that use
 `<decoded_as>json</decoded_as>` do **not** fire on production EventChannel
-(see wazuh/wazuh#13589). Sigmwah therefore emits `if_sid` / `if_group`.
+(see wazuh/wazuh#13589). MilitiaCelestial therefore emits `if_sid` / `if_group`.
 
 | Sigma logsource | Wazuh entry | Evidence |
 | --- | --- | --- |
@@ -67,7 +67,7 @@ Wazuh's own detections use `<if_group>sysmon_event1</if_group>` rather than
 | TargetUserName | win.eventdata.targetUserName | data.win.eventdata.targetUserName |
 | IpAddress | win.eventdata.ipAddress | data.win.eventdata.ipAddress |
 
-The complete table lives in `src/sigmwah/mappings/windows.yaml`. Override or extend
+The complete table lives in `src/militiacelestial/mappings/windows.yaml`. Override or extend
 with `--mappings custom.yaml`.
 
 ## Severity → Wazuh level

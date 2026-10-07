@@ -1,4 +1,4 @@
-from sigmwah.backend import WazuhBackend
+from militiacelestial.backend import WazuhBackend
 
 backends = {
     "wazuh": WazuhBackend,

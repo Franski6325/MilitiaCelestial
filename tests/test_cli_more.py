@@ -4,8 +4,8 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from sigmwah.cli import app
-from sigmwah.exceptions import DownloadError
+from militiacelestial.cli import app
+from militiacelestial.exceptions import DownloadError
 
 runner = CliRunner()
 
@@ -36,7 +36,7 @@ detection:
 
 
 def test_cli_download_error(monkeypatch: object, tmp_path: Path) -> None:
-    import sigmwah.cli as cli
+    import militiacelestial.cli as cli
 
     def fail(*_a: object, **_k: object) -> None:
         raise DownloadError("boom")

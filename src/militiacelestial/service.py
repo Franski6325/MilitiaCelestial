@@ -8,14 +8,14 @@ from sigma.collection import SigmaCollection
 from sigma.correlations import SigmaCorrelationRule
 from sigma.rule import SigmaRule
 
-from sigmwah.backend import WazuhBackend
-from sigmwah.config import ConvertSettings
-from sigmwah.emit import emit_xml
-from sigmwah.filters import parse_level_floor, parse_select, rule_passes
-from sigmwah.idalloc import IdAllocator
-from sigmwah.ir import ConversionItem
-from sigmwah.mappings.catalog import load_builtin_catalog, load_user_mappings
-from sigmwah.report import ConversionReport
+from militiacelestial.backend import WazuhBackend
+from militiacelestial.config import ConvertSettings
+from militiacelestial.emit import emit_xml
+from militiacelestial.filters import parse_level_floor, parse_select, rule_passes
+from militiacelestial.idalloc import IdAllocator
+from militiacelestial.ir import ConversionItem
+from militiacelestial.mappings.catalog import load_builtin_catalog, load_user_mappings
+from militiacelestial.report import ConversionReport
 
 
 def load_sigma_paths(paths: list[Path]) -> SigmaCollection:

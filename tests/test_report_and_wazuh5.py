@@ -4,10 +4,10 @@ from pathlib import Path
 
 from sigma.collection import SigmaCollection
 
-from sigmwah.config import ConvertSettings
-from sigmwah.ir import ConversionItem
-from sigmwah.report import ConversionReport
-from sigmwah.service import convert_collection, write_outputs
+from militiacelestial.config import ConvertSettings
+from militiacelestial.ir import ConversionItem
+from militiacelestial.report import ConversionReport
+from militiacelestial.service import convert_collection, write_outputs
 
 
 def test_report_markdown(tmp_path: Path) -> None:

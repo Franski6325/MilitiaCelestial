@@ -1,6 +1,6 @@
-# Runbook: loading Sigmwah rules into Wazuh 4.x
+# Runbook: loading MilitiaCelestial rules into Wazuh 4.x
 
-This is the operator path after `sigmwah convert`. It does not replace Wazuh’s own
+This is the operator path after `militiacelestial convert`. It does not replace Wazuh’s own
 documentation. Use a lab manager first.
 
 ## Install the XML
@@ -8,7 +8,7 @@ documentation. Use a lab manager first.
 1. Convert rules on a workstation (Python 3.11+):
 
    ```bash
-   sigmwah convert ./sigma-rules -o sigma_rules.xml --id-file .sigmwah_ids.json
+   militiacelestial convert ./sigma-rules -o sigma_rules.xml --id-file .militiacelestial_ids.json
    ```
 
 2. Copy `sigma_rules.xml` to the manager:
@@ -34,8 +34,8 @@ documentation. Use a lab manager first.
 
 ## ID range
 
-Wazuh reserves 0–99999 for built-in rules. Sigmwah defaults to 100100–119999.
-Keep `.sigmwah_ids.json` with the ruleset so reconversion does not reshuffle IDs.
+Wazuh reserves 0–99999 for built-in rules. MilitiaCelestial defaults to 100100–119999.
+Keep `.militiacelestial_ids.json` with the ruleset so reconversion does not reshuffle IDs.
 
 ## wazuh-logtest and EventChannel
 
@@ -45,7 +45,7 @@ a **temporary** patch to rule 60000 in `0575-win-base_rules.xml`:
 - Remove `<category>ossec</category>`
 - Change `<decoded_as>windows_eventchannel</decoded_as>` to `<decoded_as>json</decoded_as>`
 
-Do this **only** inside a lab container. Sigmwah's validator applies that idea in
+Do this **only** inside a lab container. MilitiaCelestial's validator applies that idea in
 Docker and never patches the XML it emits.
 
 Feed logtest a **synthetic** JSON event, for example:
@@ -57,7 +57,7 @@ Feed logtest a **synthetic** JSON event, for example:
 Never replay malware artifacts.
 
 ```bash
-sigmwah validate sigma_rules.xml --docker --event '<synthetic json>'
+militiacelestial validate sigma_rules.xml --docker --event '<synthetic json>'
 ```
 
 ## Troubleshooting

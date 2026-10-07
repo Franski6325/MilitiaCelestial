@@ -9,7 +9,7 @@ build/
 .ruff_cache/
 .coverage
 htmlcov/
-.sigmwah_ids.json
+.militiacelestial_ids.json
 .venv/
 venv/
 env/

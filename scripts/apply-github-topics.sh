@@ -2,9 +2,9 @@
 # Apply GitHub About + topics for this project. Requires `gh auth login`.
 set -euo pipefail
 
-REPO="${GITHUB_REPOSITORY:-Franski6325/sigmwah}"
+REPO="${GITHUB_REPOSITORY:-Franski6325/MilitiaCelestial}"
 DESCRIPTION='Convert Sigma detections (pySigma) into Wazuh 4.x analysisd XML. Honest skips, persistent SIDs, no vendored SigmaHQ rules.'
-HOMEPAGE='https://github.com/Franski6325/sigmwah'
+HOMEPAGE='https://github.com/Franski6325/MilitiaCelestial'
 TOPICS=(
   sigma
   wazuh

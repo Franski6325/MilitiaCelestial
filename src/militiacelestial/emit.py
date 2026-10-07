@@ -7,7 +7,7 @@ from collections import defaultdict
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.sax.saxutils import escape
 
-from sigmwah.ir import ConversionItem, MatchKind, WazuhRule
+from militiacelestial.ir import ConversionItem, MatchKind, WazuhRule
 
 _COMMENT_DASH = re.compile(r"-{2,}")
 
@@ -127,7 +127,7 @@ def _render_rule(rule: WazuhRule) -> str:
 
 
 def _append_literal(parent: Element, lit: object) -> None:
-    from sigmwah.ir import Literal as IRLiteral
+    from militiacelestial.ir import Literal as IRLiteral
 
     assert isinstance(lit, IRLiteral)
     if lit.kind == MatchKind.KEYWORD:
@@ -201,5 +201,5 @@ def attribution_comment(
     return (
         f"Sigma title: {title} | Sigma id: {sigma_id} | Author: {author} | "
         f"Date: {date} | References: {refs} | False positives: {fps} | "
-        "Converted with Sigmwah from SigmaHQ (DRL 1.1)"
+        "Converted with MilitiaCelestial from SigmaHQ (DRL 1.1)"
     )

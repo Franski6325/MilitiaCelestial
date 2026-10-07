@@ -33,12 +33,12 @@ from sigma.types import (
     SigmaString,
 )
 
-from sigmwah.config import ConvertSettings
-from sigmwah.correlation import convert_event_count, unsupported_message
-from sigmwah.dnf import DnfTooLargeError, dnf_and_all, dnf_not, dnf_or_all
-from sigmwah.emit import attribution_comment
-from sigmwah.idalloc import IdAllocator
-from sigmwah.ir import (
+from militiacelestial.config import ConvertSettings
+from militiacelestial.correlation import convert_event_count, unsupported_message
+from militiacelestial.dnf import DnfTooLargeError, dnf_and_all, dnf_not, dnf_or_all
+from militiacelestial.emit import attribution_comment
+from militiacelestial.idalloc import IdAllocator
+from militiacelestial.ir import (
     DNF,
     ConversionItem,
     Literal,
@@ -46,9 +46,9 @@ from sigmwah.ir import (
     MatchKind,
     WazuhRule,
 )
-from sigmwah.mappings.catalog import MappingCatalog, load_builtin_catalog
-from sigmwah.mitre import mitre_ids_from_tags
-from sigmwah.pcre import (
+from militiacelestial.mappings.catalog import MappingCatalog, load_builtin_catalog
+from militiacelestial.mitre import mitre_ids_from_tags
+from militiacelestial.pcre import (
     cidr_to_pcre2,
     join_alternatives,
     sigma_regex_to_pcre2,
@@ -59,7 +59,7 @@ from sigmwah.pcre import (
 class WazuhBackend(Backend):  # type: ignore[misc]
     """Convert Sigma rules to a Wazuh 4.x XML intermediate representation."""
 
-    name = "Wazuh XML (Sigmwah)"
+    name = "Wazuh XML (MilitiaCelestial)"
     formats: dict[str, str] = {
         "default": "Wazuh 4.x analysisd XML intermediate representation",
     }
@@ -560,10 +560,10 @@ class WazuhBackend(Backend):  # type: ignore[misc]
                 target="wazuh5",
             )
         payload = rule.to_dict()
-        payload["converted_with"] = "Sigmwah"
+        payload["converted_with"] = "MilitiaCelestial"
         payload["wazuh_target"] = "wazuh5"
         payload["note"] = (
-            "Experimental Wazuh 5.x Sigma YAML. Fields were mapped by the Sigmwah "
+            "Experimental Wazuh 5.x Sigma YAML. Fields were mapped by the MilitiaCelestial "
             "pipeline. Correlation, if_sid chaining, and numeric Wazuh IDs are not used."
         )
         text = yaml.safe_dump(payload, sort_keys=False, allow_unicode=True)

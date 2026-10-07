@@ -11,7 +11,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: Sigmwah version
+      label: MilitiaCelestial version
       placeholder: "0.1.0"
     validations:
       required: true

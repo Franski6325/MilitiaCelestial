@@ -1,4 +1,4 @@
-"""Sigmwah command-line interface."""
+"""MilitiaCelestial command-line interface."""
 
 from __future__ import annotations
 
@@ -6,16 +6,16 @@ from pathlib import Path
 
 import typer
 
-from sigmwah import __version__
-from sigmwah.config import ConvertSettings
-from sigmwah.downloader import download_sigmahq
-from sigmwah.exceptions import SigmwahError
-from sigmwah.idalloc import IdAllocator
-from sigmwah.service import convert_collection, load_sigma_paths, write_outputs
-from sigmwah.validator import smoke_test_docker, validate_xml
+from militiacelestial import __version__
+from militiacelestial.config import ConvertSettings
+from militiacelestial.downloader import download_sigmahq
+from militiacelestial.exceptions import MilitiaCelestialError
+from militiacelestial.idalloc import IdAllocator
+from militiacelestial.service import convert_collection, load_sigma_paths, write_outputs
+from militiacelestial.validator import smoke_test_docker, validate_xml
 
 app = typer.Typer(
-    name="sigmwah",
+    name="militiacelestial",
     help="Convert Sigma rules (pySigma) into Wazuh 4.x XML rulesets.",
     no_args_is_help=True,
     add_completion=False,
@@ -24,7 +24,7 @@ app = typer.Typer(
 
 def _version_callback(value: bool) -> None:
     if value:
-        typer.echo(f"sigmwah {__version__}")
+        typer.echo(f"militiacelestial {__version__}")
         raise typer.Exit()
 
 
@@ -38,7 +38,7 @@ def main(
         help="Show version and exit.",
     ),
 ) -> None:
-    """Sigmwah — Sigma to Wazuh converter."""
+    """MilitiaCelestial — Sigma to Wazuh converter."""
 
 
 @app.command()
@@ -48,7 +48,7 @@ def convert(
     target: str = typer.Option("wazuh4", "--target", help="wazuh4 or wazuh5"),
     id_start: int = typer.Option(100100, "--id-start"),
     id_max: int = typer.Option(119999, "--id-max"),
-    id_file: Path = typer.Option(Path(".sigmwah_ids.json"), "--id-file"),
+    id_file: Path = typer.Option(Path(".militiacelestial_ids.json"), "--id-file"),
     select: str | None = typer.Option(None, "--select"),
     tags: str | None = typer.Option(None, "--tags"),
     level: str | None = typer.Option(None, "--level", help="Minimum Sigma level, e.g. medium+"),
@@ -85,7 +85,7 @@ def convert(
         collection = load_sigma_paths(paths)
         items, conv_report, _allocator = convert_collection(collection, settings)
         written = write_outputs(items, output, settings)
-    except (SigmwahError, ValueError) as exc:
+    except (MilitiaCelestialError, ValueError) as exc:
         typer.secho(str(exc), fg=typer.colors.RED)
         raise typer.Exit(code=1) from exc
     if settings.report_path is not None:
@@ -106,14 +106,16 @@ def download_sigmahq_cmd(
     version: str = typer.Option("latest", "--version"),
     dest: Path = typer.Option(Path("sigmahq"), "--dest", help="Directory to extract into"),
 ) -> None:
-    """Download a SigmaHQ release zip. Does not vendor rules into Sigmwah."""
+    """Download a SigmaHQ release zip. Does not vendor rules into MilitiaCelestial."""
     try:
         extracted = download_sigmahq(dest, version=version)
-    except SigmwahError as exc:
+    except MilitiaCelestialError as exc:
         typer.secho(str(exc), fg=typer.colors.RED)
         raise typer.Exit(code=1) from exc
     typer.echo(f"Extracted SigmaHQ rules to {extracted}")
-    typer.echo("Rules remain under Detection Rule License 1.1. See SIGMWAH_DRL_NOTICE.txt.")
+    typer.echo(
+        "Rules remain under Detection Rule License 1.1. See MILITIACELESTIAL_DRL_NOTICE.txt."
+    )
 
 
 @app.command()
@@ -142,7 +144,7 @@ def validate(
 
 @app.command()
 def ids(
-    id_file: Path = typer.Option(Path(".sigmwah_ids.json"), "--id-file"),
+    id_file: Path = typer.Option(Path(".militiacelestial_ids.json"), "--id-file"),
     csv_out: Path | None = typer.Option(None, "--csv", help="Export allocations to CSV"),
     id_start: int = typer.Option(100100, "--id-start"),
     id_max: int = typer.Option(119999, "--id-max"),

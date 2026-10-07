@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from sigmwah.validator import validate_xml
+from militiacelestial.validator import validate_xml
 
 
 def test_validate_ok(tmp_path: Path) -> None:

@@ -24,7 +24,7 @@ tags:
 ```xml
 <group name="sigma,windows,sysmon,">
   <rule id="100100" level="6">
-    <!-- Sigma title: Synthetic PowerShell Image | ... | Converted with Sigmwah from SigmaHQ (DRL 1.1) -->
+    <!-- Sigma title: Synthetic PowerShell Image | ... | Converted with MilitiaCelestial from SigmaHQ (DRL 1.1) -->
     <if_group>sysmon_event1</if_group>
     <field name="win.eventdata.image" type="pcre2">(?i).*powershell.*</field>
     <options>no_full_log</options>
@@ -58,5 +58,5 @@ severity:
 ```
 
 ```bash
-sigmwah convert rules/ --mappings overlay.yaml -o /var/ossec/etc/rules/sigma_rules.xml
+militiacelestial convert rules/ --mappings overlay.yaml -o /var/ossec/etc/rules/sigma_rules.xml
 ```

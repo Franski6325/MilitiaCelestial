@@ -1,10 +1,10 @@
-"""Build the default Sigmwah processing pipeline."""
+"""Build the default MilitiaCelestial processing pipeline."""
 
 from __future__ import annotations
 
 from sigma.processing.pipeline import ProcessingPipeline
 
-from sigmwah.mappings.catalog import load_builtin_catalog
+from militiacelestial.mappings.catalog import load_builtin_catalog
 
 
 def wazuh_pipeline() -> ProcessingPipeline:

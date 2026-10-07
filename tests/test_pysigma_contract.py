@@ -1,7 +1,7 @@
 """Contract tests against the installed pySigma public API.
 
 These tests document empirically verified behaviour. If they fail, the
-Sigmwah backend must be updated — do not "fix" them by weakening assertions
+MilitiaCelestial backend must be updated — do not "fix" them by weakening assertions
 without checking the pySigma changelog.
 """
 

@@ -24,21 +24,21 @@ from sigma.rule import SigmaRule
 from sigma.types import SigmaCIDRExpression, SigmaNumber, SigmaRegularExpression, SigmaString
 from typer.testing import CliRunner
 
-from sigmwah.backend import WazuhBackend, _sigma_key
-from sigmwah.cli import app
-from sigmwah.config import ConvertSettings
-from sigmwah.correlation import unsupported_message
-from sigmwah.dnf import dnf_and, dnf_not, dnf_or
-from sigmwah.downloader import _zip_url, download_sigmahq
-from sigmwah.emit import emit_xml
-from sigmwah.exceptions import DownloadError, MappingError, ValidationError
-from sigmwah.filters import parse_level_floor, parse_select, rule_passes
-from sigmwah.idalloc import IdAllocator
-from sigmwah.ir import DNF, ConversionItem, Literal, MatchKind, WazuhRule
-from sigmwah.mappings.catalog import load_builtin_catalog, load_user_mappings
-from sigmwah.pcre import cidr_to_pcre2, join_alternatives, looks_like_pcre2
-from sigmwah.service import convert_collection, load_sigma_paths, write_outputs
-from sigmwah.validator import ValidationResult, smoke_test_docker, validate_xml
+from militiacelestial.backend import WazuhBackend, _sigma_key
+from militiacelestial.cli import app
+from militiacelestial.config import ConvertSettings
+from militiacelestial.correlation import unsupported_message
+from militiacelestial.dnf import dnf_and, dnf_not, dnf_or
+from militiacelestial.downloader import _zip_url, download_sigmahq
+from militiacelestial.emit import emit_xml
+from militiacelestial.exceptions import DownloadError, MappingError, ValidationError
+from militiacelestial.filters import parse_level_floor, parse_select, rule_passes
+from militiacelestial.idalloc import IdAllocator
+from militiacelestial.ir import DNF, ConversionItem, Literal, MatchKind, WazuhRule
+from militiacelestial.mappings.catalog import load_builtin_catalog, load_user_mappings
+from militiacelestial.pcre import cidr_to_pcre2, join_alternatives, looks_like_pcre2
+from militiacelestial.service import convert_collection, load_sigma_paths, write_outputs
+from militiacelestial.validator import ValidationResult, smoke_test_docker, validate_xml
 
 runner = CliRunner()
 
@@ -620,7 +620,7 @@ def test_dnf_empty_branches() -> None:
 def test_download_http_and_asset(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     import zipfile
 
-    import sigmwah.downloader as downloader
+    import militiacelestial.downloader as downloader
 
     def boom(*_a: object, **_k: object) -> None:
         raise urllib.error.URLError("offline")
@@ -707,7 +707,7 @@ def test_download_http_and_asset(tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 
 
 def test_docker_success_mock(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    import sigmwah.validator as validator
+    import militiacelestial.validator as validator
 
     xml = tmp_path / "ok.xml"
     xml.write_text(
@@ -744,7 +744,7 @@ def test_docker_success_mock(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) ->
 
 
 def test_docker_malformed_and_timeout(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    import sigmwah.validator as validator
+    import militiacelestial.validator as validator
 
     bad = tmp_path / "bad.xml"
     bad.write_text("<nope>", encoding="utf-8")
@@ -853,7 +853,7 @@ detection:
         ["convert", str(rule), "--format", "nope", "-o", str(tmp_path / "o.xml")],
     )
     assert bad_fmt.exit_code != 0
-    import sigmwah.cli as cli
+    import militiacelestial.cli as cli
 
     monkeypatch.setattr(cli, "load_sigma_paths", lambda _p: (_ for _ in ()).throw(ValueError("bad")))
     err = runner.invoke(app, ["convert", str(rule), "-o", str(tmp_path / "o.xml")])

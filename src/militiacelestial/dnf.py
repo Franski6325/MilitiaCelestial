@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from itertools import product
 
-from sigmwah.ir import DNF, Literal
+from militiacelestial.ir import DNF, Literal
 
 # Wazuh cannot reasonably host an unbounded cartesian product of OR branches.
 MAX_DNF_TERMS = 32

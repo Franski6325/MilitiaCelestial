@@ -7,12 +7,12 @@ from sigma.collection import SigmaCollection
 from sigma.rule import SigmaRule
 from sigma.types import SigmaCIDRExpression, SigmaRegularExpression, SigmaRegularExpressionFlag
 
-from sigmwah.backend import WazuhBackend
-from sigmwah.config import ConvertSettings
-from sigmwah.idalloc import IdAllocator
-from sigmwah.mappings.catalog import load_builtin_catalog
-from sigmwah.pcre import cidr_to_pcre2, sigma_regex_to_pcre2
-from sigmwah.validator import smoke_test_docker, validate_xml
+from militiacelestial.backend import WazuhBackend
+from militiacelestial.config import ConvertSettings
+from militiacelestial.idalloc import IdAllocator
+from militiacelestial.mappings.catalog import load_builtin_catalog
+from militiacelestial.pcre import cidr_to_pcre2, sigma_regex_to_pcre2
+from militiacelestial.validator import smoke_test_docker, validate_xml
 
 
 def test_exists_null_bool_cidr(tmp_path: Path) -> None:
@@ -58,7 +58,7 @@ def test_pcre_flags_and_ipv6() -> None:
 
 
 def test_smoke_test_skips_without_docker(tmp_path: Path, monkeypatch: object) -> None:
-    import sigmwah.validator as validator
+    import militiacelestial.validator as validator
 
     xml = tmp_path / "ok.xml"
     xml.write_text(
@@ -77,7 +77,7 @@ def test_smoke_test_skips_without_docker(tmp_path: Path, monkeypatch: object) ->
 def test_smoke_test_docker_failure(tmp_path: Path, monkeypatch: object) -> None:
     import subprocess
 
-    import sigmwah.validator as validator
+    import militiacelestial.validator as validator
 
     xml = tmp_path / "ok.xml"
     xml.write_text(

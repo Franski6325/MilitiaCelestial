@@ -1,11 +1,11 @@
 title: Synthetic PowerShell Image
 id: 11111111-1111-4111-8111-111111111111
 status: experimental
-description: Synthetic process-creation rule for Sigmwah golden tests.
-author: Sigmwah Test Suite
+description: Synthetic process-creation rule for MilitiaCelestial golden tests.
+author: MilitiaCelestial Test Suite
 date: 2026-01-01
 references:
-  - https://example.invalid/sigmwah-tests
+  - https://example.invalid/militiacelestial-tests
 falsepositives:
   - Administrator troubleshooting
 logsource:

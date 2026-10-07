@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from sigmwah.exceptions import IdRangeExhaustedError
-from sigmwah.idalloc import IdAllocator
+from militiacelestial.exceptions import IdRangeExhaustedError
+from militiacelestial.idalloc import IdAllocator
 
 
 def test_allocate_is_stable_and_persistent(tmp_path: Path) -> None:

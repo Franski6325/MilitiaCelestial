@@ -4,16 +4,16 @@ from pathlib import Path
 
 from sigma.collection import SigmaCollection
 
-from sigmwah.config import ConvertSettings
-from sigmwah.emit import emit_xml
-from sigmwah.service import convert_collection
+from militiacelestial.config import ConvertSettings
+from militiacelestial.emit import emit_xml
+from militiacelestial.service import convert_collection
 
 GOLDEN = Path(__file__).parent / "golden"
 
 
 def _convert(path: Path, tmp_path: Path) -> str:
     settings = ConvertSettings(
-        id_file=tmp_path / ".sigmwah_ids.json",
+        id_file=tmp_path / ".militiacelestial_ids.json",
         id_start=100100,
         id_max=100199,
     )
@@ -29,7 +29,7 @@ def test_contains_powershell(tmp_path: Path) -> None:
     assert "win.eventdata.image" in xml
     assert "powershell" in xml
     assert "T1059.001" in xml
-    assert "Converted with Sigmwah from SigmaHQ (DRL 1.1)" in xml
+    assert "Converted with MilitiaCelestial from SigmaHQ (DRL 1.1)" in xml
     assert 'level="6"' in xml
 
 

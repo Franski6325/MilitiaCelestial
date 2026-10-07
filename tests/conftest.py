@@ -4,13 +4,13 @@ from pathlib import Path
 
 import pytest
 
-from sigmwah.config import ConvertSettings
-from sigmwah.idalloc import IdAllocator
+from militiacelestial.config import ConvertSettings
+from militiacelestial.idalloc import IdAllocator
 
 
 @pytest.fixture
 def tmp_id_file(tmp_path: Path) -> Path:
-    return tmp_path / ".sigmwah_ids.json"
+    return tmp_path / ".militiacelestial_ids.json"
 
 
 @pytest.fixture

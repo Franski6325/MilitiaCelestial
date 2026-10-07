@@ -12,11 +12,11 @@ from sigma.correlations import (
 from sigma.exceptions import SigmaConversionError
 from sigma.rule import SigmaRule
 
-from sigmwah.ir import ConversionItem, WazuhRule
-from sigmwah.mitre import mitre_ids_from_tags
+from militiacelestial.ir import ConversionItem, WazuhRule
+from militiacelestial.mitre import mitre_ids_from_tags
 
 if TYPE_CHECKING:
-    from sigmwah.backend import WazuhBackend
+    from militiacelestial.backend import WazuhBackend
 
 _UNSUPPORTED: dict[SigmaCorrelationType, str] = {
     SigmaCorrelationType.VALUE_COUNT: (

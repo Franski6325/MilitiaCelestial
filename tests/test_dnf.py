@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from sigmwah.dnf import DNF, MAX_DNF_TERMS, DnfTooLargeError, dnf_and, dnf_not, dnf_or
-from sigmwah.ir import Literal, MatchKind
+from militiacelestial.dnf import DNF, MAX_DNF_TERMS, DnfTooLargeError, dnf_and, dnf_not, dnf_or
+from militiacelestial.ir import Literal, MatchKind
 
 
 def _lit(field: str, value: str) -> Literal:

@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="docs/assets/sigmwah-hero.png" alt="Sigmwah — convert Sigma detection rules to Wazuh 4.x XML for SIEM detection engineering" width="100%">
+  <img src="docs/assets/militiacelestial-hero.jpg" alt="MilitiaCelestial — original emblem of Saint Michael the Archangel, Sigma to Wazuh" width="100%">
 </p>
 
 <p align="center">
-  <img src="docs/assets/sigmwah-icon.png" alt="Sigmwah logo: sigma mark in a hexagon" width="96">
+  <img src="docs/assets/militiacelestial-icon.jpg" alt="MilitiaCelestial emblem: Saint Michael the Archangel" width="96">
 </p>
 
-<h1 align="center">Sigmwah</h1>
+<h1 align="center">MilitiaCelestial</h1>
 
 <p align="center">
   <strong>Sigma → Wazuh 4.x XML</strong> for SIEM detection engineering.<br>
@@ -14,14 +14,14 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Franski6325/sigmwah/actions/workflows/ci.yml"><img src="https://github.com/Franski6325/sigmwah/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
-  <a href="https://github.com/Franski6325/sigmwah/stargazers"><img src="https://img.shields.io/github/stars/Franski6325/sigmwah?style=flat-square" alt="GitHub stars"></a>
-  <a href="https://github.com/Franski6325/sigmwah/issues"><img src="https://img.shields.io/github/issues/Franski6325/sigmwah?style=flat-square" alt="GitHub issues"></a>
-  <img src="https://img.shields.io/github/license/Franski6325/sigmwah?style=flat-square" alt="Apache License 2.0">
+  <a href="https://github.com/Franski6325/MilitiaCelestial/actions/workflows/ci.yml"><img src="https://github.com/Franski6325/MilitiaCelestial/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+  <a href="https://github.com/Franski6325/MilitiaCelestial/stargazers"><img src="https://img.shields.io/github/stars/Franski6325/MilitiaCelestial?style=flat-square" alt="GitHub stars"></a>
+  <a href="https://github.com/Franski6325/MilitiaCelestial/issues"><img src="https://img.shields.io/github/issues/Franski6325/MilitiaCelestial?style=flat-square" alt="GitHub issues"></a>
+  <img src="https://img.shields.io/github/license/Franski6325/MilitiaCelestial?style=flat-square" alt="Apache License 2.0">
   <img src="https://img.shields.io/badge/python-3.11%20%7C%203.12-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.11 and 3.12">
   <img src="https://img.shields.io/badge/pySigma-1.5-5B8DEF?style=flat-square" alt="pySigma 1.5">
   <img src="https://img.shields.io/badge/Wazuh-4.14.7-00A9E0?style=flat-square" alt="Wazuh 4.14.7">
-  <img src="https://img.shields.io/github/v/tag/Franski6325/sigmwah?style=flat-square&label=release" alt="Latest tag">
+  <img src="https://img.shields.io/github/v/tag/Franski6325/MilitiaCelestial?style=flat-square&label=release" alt="Latest tag">
 </p>
 
 <p align="center">
@@ -39,11 +39,11 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/topics.svg" alt="Sigmwah topics: sigma, wazuh, pysigma, siem, detection-engineering" width="100%">
+  <img src="docs/assets/topics.svg" alt="MilitiaCelestial topics: sigma, wazuh, pysigma, siem, detection-engineering" width="100%">
 </p>
 
 <p align="center">
-  <a href="#why-sigmwah">Why</a>
+  <a href="#why-militiacelestial">Why</a>
   · <a href="#quick-start">Quick start</a>
   · <a href="#how-it-works">How it works</a>
   · <a href="#cli">CLI</a>
@@ -55,9 +55,9 @@
 
 ---
 
-**Community software.** Sigmwah is **not** affiliated with, endorsed by, or sponsored by [Wazuh Inc.](https://wazuh.com/) or [SigmaHQ](https://github.com/SigmaHQ). “Wazuh” is a trademark of Wazuh Inc. Sigma is a SigmaHQ project.
+**Community software.** MilitiaCelestial is **not** affiliated with, endorsed by, or sponsored by [Wazuh Inc.](https://wazuh.com/) or [SigmaHQ](https://github.com/SigmaHQ). “Wazuh” is a trademark of Wazuh Inc. Sigma is a SigmaHQ project.
 
-Sigmwah reads **Sigma YAML** (your files, or a SigmaHQ release you download yourself) and writes **Wazuh 4.x `analysisd` XML**. It talks to [pySigma](https://github.com/SigmaHQ/pySigma) over the public API. It does **not** use `sigmac`. It does **not** ship SigmaHQ rule text in this repository.
+MilitiaCelestial reads **Sigma YAML** (your files, or a SigmaHQ release you download yourself) and writes **Wazuh 4.x `analysisd` XML**. It talks to [pySigma](https://github.com/SigmaHQ/pySigma) over the public API. It does **not** use `sigmac`. It does **not** ship SigmaHQ rule text in this repository.
 
 | You bring | You get |
 | --- | --- |
@@ -67,9 +67,9 @@ Sigmwah reads **Sigma YAML** (your files, or a SigmaHQ release you download your
 
 ---
 
-## Why Sigmwah
+## Why MilitiaCelestial
 
-Sigma’s old converter stack (`sigmac`) is retired. Current rules go through **pySigma**. Wazuh 4.x still consumes XML. Sigmwah is the missing piece for that pair, written from scratch for this repository.
+Sigma’s old converter stack (`sigmac`) is retired. Current rules go through **pySigma**. Wazuh 4.x still consumes XML. MilitiaCelestial is the missing piece for that pair, written from scratch for this repository.
 
 It is opinionated on purpose:
 
@@ -84,8 +84,8 @@ Quality gate for 0.1.0: Wazuh **4.14.7**, Python **3.11 / 3.12**, unit + golden 
 ## Quick start
 
 ```bash
-git clone https://github.com/Franski6325/sigmwah.git
-cd sigmwah
+git clone https://github.com/Franski6325/MilitiaCelestial.git
+cd MilitiaCelestial
 python3 -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
@@ -94,23 +94,23 @@ pip install -e ".[dev]"
 **Lab (synthetic rule, no SigmaHQ download):**
 
 ```bash
-sigmwah convert tests/golden/01_contains.yml -o demo.xml --id-file /tmp/sigmwah-ids.json
-sigmwah validate demo.xml
+militiacelestial convert tests/golden/01_contains.yml -o demo.xml --id-file /tmp/militiacelestial-ids.json
+militiacelestial validate demo.xml
 ```
 
 **Catalog you downloaded (Detection Rule License 1.1 stays with that tree):**
 
 ```bash
-sigmwah download-sigmahq --version latest --dest ./sigmahq
-sigmwah convert ./sigmahq \
+militiacelestial download-sigmahq --version latest --dest ./sigmahq
+militiacelestial convert ./sigmahq \
   --select product=windows \
   --level medium+ \
   -o rules_sigma.xml \
   --report report.md \
-  --id-file .sigmwah_ids.json
+  --id-file .militiacelestial_ids.json
 ```
 
-Keep `.sigmwah_ids.json` next to the XML. Reconversion reuses the same Wazuh SIDs.
+Keep `.militiacelestial_ids.json` next to the XML. Reconversion reuses the same Wazuh SIDs.
 
 ---
 
@@ -138,11 +138,11 @@ flowchart LR
 ## CLI
 
 ```text
-sigmwah --version
-sigmwah convert PATH... [options]
-sigmwah download-sigmahq [--version latest] [--dest ./sigmahq]
-sigmwah validate RULES.xml [--docker] [--event LINE]
-sigmwah ids [--id-file .sigmwah_ids.json] [--csv allocations.csv]
+militiacelestial --version
+militiacelestial convert PATH... [options]
+militiacelestial download-sigmahq [--version latest] [--dest ./sigmahq]
+militiacelestial validate RULES.xml [--docker] [--event LINE]
+militiacelestial ids [--id-file .militiacelestial_ids.json] [--csv allocations.csv]
 ```
 
 <details>
@@ -167,12 +167,12 @@ sigmwah ids [--id-file .sigmwah_ids.json] [--csv allocations.csv]
 </details>
 
 ```bash
-sigmwah convert ./sigmahq --select product=linux,service=sshd -o sshd.xml
-sigmwah convert ./rules --mappings overlay.yaml --dry-run --report report.md
-sigmwah convert ./rules --target wazuh5 -o wazuh5.yaml
+militiacelestial convert ./sigmahq --select product=linux,service=sshd -o sshd.xml
+militiacelestial convert ./rules --mappings overlay.yaml --dry-run --report report.md
+militiacelestial convert ./rules --target wazuh5 -o wazuh5.yaml
 ```
 
-**`download-sigmahq`** fetches the official GitHub release zip and writes `SIGMWAH_DRL_NOTICE.txt`. Do not commit that tree here.
+**`download-sigmahq`** fetches the official GitHub release zip and writes `MILITIACELESTIAL_DRL_NOTICE.txt`. Do not commit that tree here.
 
 **`validate`** checks well-formed XML, unique IDs, `level`, `description`. `--docker` runs synthetic `--event` lines through `wazuh/wazuh-manager:4.14.7` / `wazuh-logtest`. Any logtest patch to rule 60000 stays **inside the container**.
 
@@ -203,7 +203,7 @@ Tables: [`docs/mappings.md`](docs/mappings.md).
 
 ## Load rules on Wazuh
 
-1. Convert on a workstation. Version `.sigmwah_ids.json` with the XML.
+1. Convert on a workstation. Version `.militiacelestial_ids.json` with the XML.
 2. Install under `/var/ossec/etc/rules/` (a late-sorting name such as `zzz_sigma_rules.xml` if you chain `if_sid`).
 3. `chown wazuh:wazuh` · `chmod 640` · `systemctl restart wazuh-manager`.
 4. Check `/var/ossec/logs/ossec.log` for load errors.
@@ -236,7 +236,7 @@ Abbreviated Wazuh 4.x output:
 ```xml
 <group name="sigma,windows,sysmon,">
   <rule id="100100" level="6">
-    <!-- Sigma title: … | Converted with Sigmwah from SigmaHQ (DRL 1.1) -->
+    <!-- Sigma title: … | Converted with MilitiaCelestial from SigmaHQ (DRL 1.1) -->
     <if_group>sysmon_event1</if_group>
     <field name="win.eventdata.image" type="pcre2">(?i).*powershell.*</field>
     <options>no_full_log</options>
@@ -253,7 +253,7 @@ More: [`docs/examples.md`](docs/examples.md), `tests/golden/`.
 ## Develop
 
 ```text
-src/sigmwah/           converter, CLI, mapping YAML
+src/militiacelestial/           converter, CLI, mapping YAML
 src/sigma/backends/    pySigma plugin discovery
 tests/golden/          original YAML + expected XML
 docs/                  mappings, runbook, examples
@@ -261,7 +261,7 @@ docs/                  mappings, runbook, examples
 
 ```bash
 ruff check src tests
-mypy src/sigmwah
+mypy src/militiacelestial
 pytest -m "not docker"
 ```
 
@@ -273,7 +273,8 @@ CI: [`.github/workflows/ci.yml`](.github/workflows/ci.yml). See [CONTRIBUTING.md
 
 | Piece | Terms |
 | --- | --- |
-| Sigmwah source in this repository | [Apache License 2.0](LICENSE) — written for this project, not copied from other converters |
+| MilitiaCelestial source in this repository | [Apache License 2.0](LICENSE) — written for this project, not copied from other converters |
+| Project mark | Original emblem of Saint Michael the Archangel, prince of the heavenly host, made for this repository. It is not a reproduction of any existing painting. |
 | pySigma (installed with pip, **not** vendored) | LGPL-2.1-only |
 | SigmaHQ rules **you** download | [Detection Rule License 1.1](https://github.com/SigmaHQ/Detection-Rule-License) |
 
@@ -281,7 +282,7 @@ This tree does **not** contain SigmaHQ detection YAML. Golden tests are original
 
 Every converted `<rule>` carries Sigma title, id, author, date, references, and:
 
-`Converted with Sigmwah from SigmaHQ (DRL 1.1)`
+`Converted with MilitiaCelestial from SigmaHQ (DRL 1.1)`
 
 Full third-party notes: [NOTICE](NOTICE). Security contact: [SECURITY.md](SECURITY.md).
 
@@ -298,18 +299,20 @@ Full third-party notes: [NOTICE](NOTICE). Security contact: [SECURITY.md](SECURI
 
 **0.1.0** is a first public converter, not a turnkey SOC platform. Convert, read `report.md`, load XML in a lab, and confirm `if_sid` / `if_group` on your Wazuh patch before wide deployment.
 
-Repository: [github.com/Franski6325/sigmwah](https://github.com/Franski6325/sigmwah)
+Repository: [github.com/Franski6325/MilitiaCelestial](https://github.com/Franski6325/MilitiaCelestial)
 
 ---
 
 ## In italiano
 
-Sigmwah converte regole di detection **Sigma** (YAML, tramite pySigma) in regole XML **Wazuh 4.x** (`analysisd`). Non è affiliato a Wazuh Inc. né a SigmaHQ. Le regole SigmaHQ non stanno in questo repo: le scarichi tu, restano sotto DRL 1.1.
+MilitiaCelestial converte regole di detection **Sigma** (YAML, tramite pySigma) in regole XML **Wazuh 4.x** (`analysisd`). Non è affiliato a Wazuh Inc. né a SigmaHQ. Le regole SigmaHQ non stanno in questo repo: le scarichi tu, restano sotto DRL 1.1.
+
+L'emblema è un'immagine originale di San Michele Arcangelo, principe della milizia celeste, fatta per questo progetto. Non è la copia di un dipinto.
 
 Cosa fa bene: match su campi, Windows EventChannel/Sysmon con `if_sid`/`if_group`, Linux/web, correlazione `event_count`, ID persistenti. Cosa non inventa: correlazioni che Wazuh non sa esprimere — finiscono nel report come scarti motivati.
 
 ```bash
-git clone https://github.com/Franski6325/sigmwah.git
-cd sigmwah && pip install -e ".[dev]"
-sigmwah convert tests/golden/01_contains.yml -o demo.xml --id-file /tmp/ids.json
+git clone https://github.com/Franski6325/MilitiaCelestial.git
+cd MilitiaCelestial && pip install -e ".[dev]"
+militiacelestial convert tests/golden/01_contains.yml -o demo.xml --id-file /tmp/ids.json
 ```

@@ -10,11 +10,11 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from sigmwah.exceptions import ValidationError
+from militiacelestial.exceptions import ValidationError
 
 DEFAULT_IMAGE = "wazuh/wazuh-manager:4.14.7"
 LOGTEST_PATCH_SNIPPET = """
-<!-- Sigmwah wazuh-logtest patch: EventChannel is not simulated by logtest.
+<!-- MilitiaCelestial wazuh-logtest patch: EventChannel is not simulated by logtest.
      Production rules keep if_sid/if_group. This patch is applied only inside
      the validation container, never to emitted rulesets. -->
 """
@@ -36,7 +36,7 @@ def validate_xml(path: Path) -> ValidationResult:
         root = tree.getroot()
         groups = [root] if root.tag == "group" else list(root)
     except ET.ParseError:
-        wrapped = f"<sigmwah>{_strip_decl(text)}</sigmwah>"
+        wrapped = f"<militiacelestial>{_strip_decl(text)}</militiacelestial>"
         try:
             forest = ET.fromstring(wrapped)
         except ET.ParseError as exc:
@@ -89,8 +89,8 @@ def smoke_test_docker(
         result.messages.append("Docker is not available; skipped wazuh-logtest smoke test")
         return result
     result.docker_ran = True
-    name = f"sigmwah-logtest-{int(time.time())}"
-    with tempfile.TemporaryDirectory(prefix="sigmwah-val-") as tmp:
+    name = f"militiacelestial-logtest-{int(time.time())}"
+    with tempfile.TemporaryDirectory(prefix="militiacelestial-val-") as tmp:
         tmp_path = Path(tmp)
         shutil.copy2(rules_path, tmp_path / "sigma_rules.xml")
         try:

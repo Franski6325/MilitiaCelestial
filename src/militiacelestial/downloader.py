@@ -1,4 +1,4 @@
-"""Download SigmaHQ rule releases without vendoring them into Sigmwah."""
+"""Download SigmaHQ rule releases without vendoring them into MilitiaCelestial."""
 
 from __future__ import annotations
 
@@ -9,10 +9,10 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-from sigmwah.exceptions import DownloadError
+from militiacelestial.exceptions import DownloadError
 
 GITHUB_API = "https://api.github.com/repos/SigmaHQ/sigma/releases"
-USER_AGENT = "Sigmwah/0.1.0 (community Sigma to Wazuh converter)"
+USER_AGENT = "MilitiaCelestial/0.1.0 (community Sigma to Wazuh converter)"
 
 
 def download_sigmahq(dest: Path, version: str = "latest") -> Path:
@@ -79,11 +79,11 @@ def _ensure_license_notice(extract_dir: Path) -> None:
     """Copy LICENSE/NOTICE from the extracted tree to the top-level dest if nested."""
     license_files = list(extract_dir.rglob("LICENSE")) + list(extract_dir.rglob("LICENSE*"))
     notice_files = list(extract_dir.rglob("NOTICE")) + list(extract_dir.rglob("NOTICE*"))
-    marker = extract_dir / "SIGMWAH_DRL_NOTICE.txt"
+    marker = extract_dir / "MILITIACELESTIAL_DRL_NOTICE.txt"
     marker.write_text(
         "SigmaHQ rules are licensed under Detection Rule License 1.1 (DRL-1.1).\n"
         "See https://github.com/SigmaHQ/Detection-Rule-License\n"
-        "Sigmwah does not relicense these rules. Keep LICENSE/NOTICE from this tree.\n",
+        "MilitiaCelestial does not relicense these rules. Keep LICENSE/NOTICE from this tree.\n",
         encoding="utf-8",
     )
     if license_files:

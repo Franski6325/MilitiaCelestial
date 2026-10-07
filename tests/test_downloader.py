@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from sigmwah.downloader import download_sigmahq
+from militiacelestial.downloader import download_sigmahq
 
 
 class _FakeResponse:
@@ -27,7 +27,7 @@ def test_download_sigmahq_extracts_and_preserves_license(tmp_path: Path, monkeyp
     import io
     import zipfile
 
-    import sigmwah.downloader as downloader
+    import militiacelestial.downloader as downloader
 
     meta = {
         "tag_name": "r2026-01-01",
@@ -51,5 +51,5 @@ def test_download_sigmahq_extracts_and_preserves_license(tmp_path: Path, monkeyp
     monkeypatch.setattr(downloader.urllib.request, "urlopen", fake_urlopen)
     extracted = download_sigmahq(tmp_path / "out", version="latest")
     assert extracted.exists()
-    assert (extracted / "SIGMWAH_DRL_NOTICE.txt").exists()
+    assert (extracted / "MILITIACELESTIAL_DRL_NOTICE.txt").exists()
     assert (extracted / "LICENSE").exists() or list(extracted.rglob("LICENSE"))

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from sigma.rule import SigmaRule
 
-from sigmwah.filters import parse_level_floor, parse_select, rule_passes
+from militiacelestial.filters import parse_level_floor, parse_select, rule_passes
 
 
 def _rule() -> SigmaRule:

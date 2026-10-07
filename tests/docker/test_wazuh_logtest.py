@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from sigmwah.validator import smoke_test_docker
+from militiacelestial.validator import smoke_test_docker
 
 SYNTHETIC_JSON = (
     '{"win":{"system":{"providerName":"Microsoft-Windows-Sysmon","eventID":"1",'

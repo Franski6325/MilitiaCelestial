@@ -1,4 +1,4 @@
-"""Load and merge Sigmwah mapping YAML documents."""
+"""Load and merge MilitiaCelestial mapping YAML documents."""
 
 from __future__ import annotations
 
@@ -14,9 +14,9 @@ from sigma.processing.pipeline import ProcessingItem, ProcessingPipeline
 from sigma.processing.transformations import FieldMappingTransformation
 from sigma.rule.logsource import SigmaLogSource
 
-from sigmwah.config import SeverityMap
-from sigmwah.exceptions import MappingError
-from sigmwah.ir import LogsourceEntrySpec
+from militiacelestial.config import SeverityMap
+from militiacelestial.exceptions import MappingError
+from militiacelestial.ir import LogsourceEntrySpec
 
 
 class EntryModel(BaseModel):
@@ -47,7 +47,7 @@ class MappingFile(BaseModel):
 class FieldMap:
     mapping: dict[str, str]
     product: str | None = None
-    identifier: str = "sigmwah-fields"
+    identifier: str = "militiacelestial-fields"
 
 
 @dataclass
@@ -69,7 +69,7 @@ class MappingCatalog:
                 FieldMap(
                     mapping=dict(other.fields),
                     product=product,
-                    identifier=f"sigmwah-{source}",
+                    identifier=f"militiacelestial-{source}",
                 )
             )
         if other.severity:
@@ -120,12 +120,12 @@ class MappingCatalog:
                     rule_conditions=conditions,
                 )
             )
-        return ProcessingPipeline(items, name="sigmwah-default")
+        return ProcessingPipeline(items, name="militiacelestial-default")
 
 
 def load_builtin_catalog() -> MappingCatalog:
     catalog = MappingCatalog()
-    package = resources.files("sigmwah.mappings")
+    package = resources.files("militiacelestial.mappings")
     for name in ("windows.yaml", "linux.yaml", "web.yaml", "severity.yaml"):
         text = package.joinpath(name).read_text(encoding="utf-8")
         catalog.merge(_parse_mapping_yaml(text, source=name), source=Path(name).stem)

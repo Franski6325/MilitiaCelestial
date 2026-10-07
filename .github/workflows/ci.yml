@@ -29,6 +29,6 @@ jobs:
       - name: Ruff
         run: ruff check src tests
       - name: Mypy
-        run: mypy src/sigmwah
+        run: mypy src/militiacelestial
       - name: Pytest
         run: pytest -m "not docker"

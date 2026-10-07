@@ -4,7 +4,7 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from sigmwah.cli import app
+from militiacelestial.cli import app
 
 runner = CliRunner()
 
@@ -12,7 +12,7 @@ runner = CliRunner()
 def test_cli_version() -> None:
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "sigmwah" in result.stdout.lower()
+    assert "militiacelestial" in result.stdout.lower()
 
 
 def test_cli_convert_and_ids(tmp_path: Path) -> None:

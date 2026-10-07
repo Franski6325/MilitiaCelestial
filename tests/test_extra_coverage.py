@@ -5,21 +5,21 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from sigmwah.config import ConvertSettings, SeverityMap
-from sigmwah.emit import emit_xml
-from sigmwah.exceptions import MappingError
-from sigmwah.filters import parse_select
-from sigmwah.ir import ConversionItem, Literal, MatchKind, WazuhRule
-from sigmwah.mappings.catalog import load_user_mappings
-from sigmwah.pcre import looks_like_pcre2
-from sigmwah.pipelines import wazuh_pipeline
-from sigmwah.service import write_outputs
-from sigmwah.validator import validate_xml
+from militiacelestial.config import ConvertSettings, SeverityMap
+from militiacelestial.emit import emit_xml
+from militiacelestial.exceptions import MappingError
+from militiacelestial.filters import parse_select
+from militiacelestial.ir import ConversionItem, Literal, MatchKind, WazuhRule
+from militiacelestial.mappings.catalog import load_user_mappings
+from militiacelestial.pcre import looks_like_pcre2
+from militiacelestial.pipelines import wazuh_pipeline
+from militiacelestial.service import write_outputs
+from militiacelestial.validator import validate_xml
 
 
 def test_pipeline_has_items() -> None:
     pipeline = wazuh_pipeline()
-    assert pipeline.name == "sigmwah-default"
+    assert pipeline.name == "militiacelestial-default"
     assert pipeline.items
 
 
@@ -30,7 +30,7 @@ def test_emit_per_rule_and_per_group() -> None:
         description="d",
         groups=["sigma", "windows"],
         fields=[Literal(field="win.eventdata.image", pattern="a", kind=MatchKind.PCRE2)],
-        comments=["Converted with Sigmwah from SigmaHQ (DRL 1.1)"],
+        comments=["Converted with MilitiaCelestial from SigmaHQ (DRL 1.1)"],
         sigma_key="abc#0",
     )
     item = ConversionItem(sigma_id="abc", sigma_title="d", rules=[rule])

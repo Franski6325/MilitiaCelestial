@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from sigma.types import SigmaCIDRExpression, SigmaRegularExpression, SigmaString
 
-from sigmwah.pcre import (
+from militiacelestial.pcre import (
     cidr_to_pcre2,
     join_alternatives,
     looks_like_pcre2,

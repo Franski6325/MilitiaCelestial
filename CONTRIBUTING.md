@@ -1,21 +1,21 @@
-# Contributing to Sigmwah
+# Contributing to MilitiaCelestial
 
-Thank you for helping. Sigmwah is a community converter. Keep the bar high: correct Wazuh XML or a motivated skip, never a “close enough” rule.
+Thank you for helping. MilitiaCelestial is a community converter. Keep the bar high: correct Wazuh XML or a motivated skip, never a “close enough” rule.
 
 ## Development setup
 
 ```bash
-git clone https://github.com/Franski6325/sigmwah.git
-cd sigmwah
+git clone https://github.com/Franski6325/MilitiaCelestial.git
+cd MilitiaCelestial
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
 ruff check src tests
-mypy src/sigmwah
+mypy src/militiacelestial
 pytest -m "not docker"
 ```
 
-Python **3.11** or **3.12**. Optional Docker is only for `pytest -m docker` / `sigmwah validate --docker`.
+Python **3.11** or **3.12**. Optional Docker is only for `pytest -m docker` / `militiacelestial validate --docker`.
 
 ## Rules of the road
 
@@ -45,6 +45,6 @@ chmod +x scripts/apply-github-topics.sh
 Or paste in Settings → General:
 
 - Description: `Convert Sigma detections (pySigma) into Wazuh 4.x analysisd XML. Honest skips, persistent SIDs, no vendored SigmaHQ rules.`
-- Website: `https://github.com/Franski6325/sigmwah`
+- Website: `https://github.com/Franski6325/MilitiaCelestial`
 - Topics: `sigma` `wazuh` `pysigma` `siem` `detection-engineering` `cybersecurity` `python` `threat-detection` `infosec` `xml` `cli` `mitre-attack` `dfir` `soc` `security`
-- Social preview image: `docs/assets/sigmwah-social.png` (1280×640)
+- Social preview image: `docs/assets/militiacelestial-social.jpg` (1280×640)

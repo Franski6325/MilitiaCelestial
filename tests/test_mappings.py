@@ -5,8 +5,8 @@ from pathlib import Path
 from sigma.rule.attributes import SigmaRuleTag
 from sigma.rule.logsource import SigmaLogSource
 
-from sigmwah.mappings.catalog import load_builtin_catalog, load_user_mappings
-from sigmwah.mitre import mitre_ids_from_tags
+from militiacelestial.mappings.catalog import load_builtin_catalog, load_user_mappings
+from militiacelestial.mitre import mitre_ids_from_tags
 
 
 def test_windows_and_linux_logsource_match() -> None:

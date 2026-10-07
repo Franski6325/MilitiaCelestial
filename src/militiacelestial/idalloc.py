@@ -9,7 +9,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, TextIO
 
-from sigmwah.exceptions import IdRangeExhaustedError
+from militiacelestial.exceptions import IdRangeExhaustedError
 
 SCHEMA_VERSION = 1
 

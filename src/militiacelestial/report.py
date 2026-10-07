@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from sigmwah.ir import ConversionItem
+from militiacelestial.ir import ConversionItem
 
 
 @dataclass
@@ -25,7 +25,7 @@ class ConversionReport:
 
     def to_markdown(self) -> str:
         lines = [
-            "# Sigmwah conversion report",
+            "# MilitiaCelestial conversion report",
             "",
             f"- Converted: **{len(self.converted)}**",
             f"- Skipped: **{len(self.skipped)}**",
